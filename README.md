@@ -10,3 +10,8 @@ make build
 make run
 ```
 
+To run supervised fine-tuning, simply run the following. LLM backbone is set to Phi-3-mini by default:
+
+```
+make train-sft
+```

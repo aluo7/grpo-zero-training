@@ -13,4 +13,4 @@ COPY requirements.txt .
 RUN pip3 install --upgrade pip setuptools wheel
 RUN pip3 install -r requirements.txt
 RUN pip3 install --pre torch --index-url https://download.pytorch.org/whl/nightly/cu124
-RUN pip3 install "flash-attn"
+# RUN pip3 install "flash-attn" --no-build-isolation

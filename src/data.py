@@ -1,3 +1,5 @@
+# data.py
+
 import re
 
 from datasets import load_dataset
@@ -43,7 +45,7 @@ def preprocess_function(example, tokenizer, sft=True):
         
         expected = extract_boxed(example['solution'])
         
-        return {"query": formatted_prompt, "expected_answer": expected}
+        return {"prompt": formatted_prompt, "expected_answer": expected}
     
 def main():
     tokenizer = AutoTokenizer.from_pretrained("microsoft/Phi-3-mini-128k-instruct")

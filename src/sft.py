@@ -1,4 +1,7 @@
+# sft.py
+
 import torch
+
 from trl import SFTTrainer, SFTConfig
 from data import preprocess_function
 from datasets import load_dataset
@@ -47,13 +50,13 @@ def main():
     config = SFTConfig(
         output_dir="checkpoints/phi-math",
         packing=True,
-        num_train_epochs=1,
+        num_train_epochs=4,
         per_device_train_batch_size=2,
         gradient_accumulation_steps=4,
         dataset_text_field="text",
         learning_rate=2e-4,
         bf16=True,  # mixed-precision training
-        logging_steps=10,
+        logging_steps=200,
         # tokenizer=tokenizer,
         eval_steps=100,
         gradient_checkpointing_kwargs={"use_reentrant": False}
@@ -68,7 +71,6 @@ def main():
     )
 
     trainer.train()
-    trainer.save_model("./checkpoints/sft_final.ckpt")
     print("SFT training complete!")
 
 if __name__ == "__main__":

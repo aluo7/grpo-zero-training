@@ -5,6 +5,8 @@ Implement GRPO Zero training on the MATH dataset.
 
 Our from-scratch GRPO implementation achieves relatively stable training, though it could benefit from more fine-tuning. As shown in the curves below, we observe a steadily decreasing preference loss and a noisy but positive trend in the average reward (plotted with smoothing for interpretability purposes). Further training on the full dataset and continued hyperparameter tuning can maximize performance and stabilize training.
 
+Our Phi-3-mini fine-tuned on the MATH dataset achieves an accuracy of 37%. Our GRPO model, trained on an additional 120 samples from the MATH dataset (train/val:100/20) achieves an accuracy of ~42%. While minimal, this indicates a non-zero improvement from our baseline. Given our extremely small training set and minimal iterations, this is enough to meaningfully conclude that our GRPO implementation does improve from the baseline.
+
 #### Curve Analysis
 
 The training curve indicates a clear downward trend, showing a moderately decreasing loss as the model continuous to learn. Contrastingly, the average reward has displays a phase of rapid learning followed by a dip in bperformance from steps ~50-80. While both loss and reward signals are noisy, this is (relatively) expected in RL training. However, we observe a promising recovery towards the end of the run confirming that the model's continued learning.
@@ -19,7 +21,7 @@ Training is stable (no exploding gradients), but learning has stalled. The model
 
 1. An increased `temperature` (0.4 -> 0.7)
 2. An increased `num_generations` per training batch - however we face hardware constraints here (OOM)
-3. Further experimentation with `learning_rate` and `beta` (for KL divergence)
+3. Further experimentation with `learning_rate` and `beta` (strength of preference loss)
 
 ### Execution Pipeline
 

@@ -73,7 +73,7 @@ def generate_completions(model, tokenizer, prompts, num_generations=4, max_new_t
                 do_sample=True,
                 pad_token_id=tokenizer.pad_token_id,
                 eos_token_id=tokenizer.eos_token_id,
-                use_cache=False,  # disableisable kv cache
+                use_cache=False,  # disable kv cache
             )
             
             prompt_lengths = inputs['input_ids'].shape[1]

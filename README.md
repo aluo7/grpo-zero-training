@@ -5,7 +5,7 @@ Implement GRPO Zero training on the MATH dataset.
 
 Our from-scratch GRPO implementation achieves relatively stable training, though it could benefit from more fine-tuning. As shown in the curves below, we observe a steadily decreasing preference loss and a noisy but positive trend in the average reward (plotted with smoothing for interpretability purposes). Further training on the full dataset and continued hyperparameter tuning can maximize performance and stabilize training.
 
-Our Phi-3-mini fine-tuned on the MATH dataset achieves an accuracy of **37%**. Our GRPO model, trained on an additional 120 samples from the MATH dataset (train/val:100/20) achieves an accuracy of **~42%**. While minimal, this indicates a non-zero improvement from our baseline. Given our extremely small training set and minimal iterations, this is enough to meaningfully conclude that our GRPO implementation does improve from the baseline.
+Our baseline Phi-3-mini fine-tuned on the MATH dataset achieves an accuracy of **37%**. Our GRPO model, trained on an additional 120 samples from the MATH dataset (train/val:100/20) achieves an accuracy of **~42%**. While minimal, this indicates a non-zero improvement from our baseline. Given our extremely small training set and minimal iterations, this is enough to meaningfully conclude that our GRPO implementation does improve from the baseline.
 
 #### Curve Analysis
 

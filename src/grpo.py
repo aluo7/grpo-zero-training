@@ -16,7 +16,7 @@ import numpy as np
 from data import extract_boxed, preprocess_function
 
 def load_model_and_tokenizer(model_id="microsoft/Phi-3-mini-128k-instruct", 
-                              checkpoint_dir="checkpoints/phi-math/checkpoint-474"):
+                              checkpoint_dir="checkpoints/phi-math/checkpoint-1896"):
     
     quantization_config = BitsAndBytesConfig(
         load_in_4bit=True,
@@ -341,11 +341,11 @@ def main():
         train_dataset=train_dataset,
         val_dataset=val_dataset,
         num_epochs=1,
-        batch_size=2,
-        num_generations=4,
+        batch_size=1,
+        num_generations=8,
         learning_rate=1e-6,
         max_new_tokens=512,
-        temperature=0.7,
+        temperature=0.4,
         epsilon=0.2,
         output_dir="checkpoints/grpo_final",
         log_dir="runs/grpo"

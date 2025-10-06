@@ -22,6 +22,7 @@ Training is stable (no exploding gradients), but learning has stalled. The model
 1. An increased `temperature` (0.4 -> 0.7)
 2. An increased `num_generations` per training batch - however we face hardware constraints here (OOM)
 3. Further experimentation with `learning_rate` and `beta` (strength of preference loss)
+4. Potentially experimenting with a non-binary reward signal
 
 ### Execution Pipeline
 

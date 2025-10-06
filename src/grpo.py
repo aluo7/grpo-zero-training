@@ -46,6 +46,7 @@ def load_model_and_tokenizer(model_id="microsoft/Phi-3-mini-128k-instruct",
     return model, tokenizer
 
 
+# binary reward signal (align with dpo -> single winner, rest are losers)
 def compute_reward(completion, expected_answer):
     gen_answer = extract_boxed(completion)
     return 1.0 if gen_answer == expected_answer else 0.0
@@ -286,7 +287,7 @@ def train_grpo(
 def main():
     print("Loading model and tokenizer...")
     model, tokenizer = load_model_and_tokenizer()
-    ref_model = copy.deepcopy(model)
+    ref_model = copy.deepcopy(model)  # reference model with frozen weights
     
     print("Loading dataset...")
     dataset = load_dataset("qwedsacf/competition_math")

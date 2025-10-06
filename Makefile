@@ -13,3 +13,6 @@ train-sft:
 
 train-grpo:
 	python3 src/grpo.py
+
+evaluate:
+	python3 src/evaluate.py
